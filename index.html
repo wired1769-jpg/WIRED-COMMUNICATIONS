@@ -4,32 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="WIRED COMMUNICATIONS - Professional Digital & CSC Facilitation Centre in Lachmanpora, Batamaloo, Srinagar. G2C, B2C, online application, documentation & printing services.">
-<meta name="theme-color" content="#0a3d62">
+<meta name="theme-color" content="#001f3f">
 <title>WIRED COMMUNICATIONS | Citizen Digital Facilitation Centre</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --primary: #0a3d62;
-  --primary-dark: #072a44;
-  --accent: #0284c7;
-  --accent-light: #e0f2fe;
-  --emerald: #059669;
-  --emerald-light: #ecfdf5;
-  --gold: #d97706;
-  --gold-light: #fffbeb;
-  --surface: #ffffff;
-  --bg: #f8fafc;
-  --border: #e2e8f0;
-  --text-main: #0f172a;
-  --text-muted: #64748b;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-  --shadow-md: 0 4px 20px -2px rgba(10, 61, 98, 0.08);
-  --shadow-lg: 0 12px 30px -4px rgba(10, 61, 98, 0.12);
-  --radius: 12px;
-}
-
 * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
 body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.6; }
 h1, h2, h3, h4, .brand-title { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -62,17 +42,6 @@ a { text-decoration: none; color: inherit; }
 
 /* Main Navigation Header */
 header {
-  <!-- Moving Notice Bar -->
-<div class="notice-ticker">
-  <div class="ticker-label">📢 NOTICE</div>
-  <div class="ticker-wrapper">
-    <div class="ticker-text">
-      PAN Card • Aadhaar Print • Passport • Driving Licence • Learning Licence •
-      Vehicle Services • Certificates • Printing Services Available at
-      WIRED COMMUNICATIONS • 📞 6006675877
-    </div>
-  </div>
-</div>
   position: sticky;
   top: 0;
   z-index: 100;
@@ -103,7 +72,7 @@ header {
   place-items: center;
   font-weight: 800;
   font-size: 20px;
-  box-shadow: 0 4px 10px rgba(10, 61, 98, 0.25);
+  box-shadow: 0 4px 10px rgba(0, 31, 63, 0.25);
 }
 .brand-text { display: flex; flex-direction: column; }
 .brand-text strong { font-size: 17px; font-weight: 800; color: var(--primary); letter-spacing: -0.3px; }
@@ -125,7 +94,7 @@ header {
 /* Hero Section */
 .hero {
   padding: 60px 0 50px;
-  background: radial-gradient(circle at 100% 0%, #e0f2fe 0%, transparent 40%),
+  background: radial-gradient(circle at 100% 0%, var(--accent-light) 0%, transparent 40%),
               linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
   border-bottom: 1px solid var(--border);
 }
@@ -136,8 +105,8 @@ header {
   align-items: center;
   gap: 8px;
   padding: 6px 12px;
-  background: #e0f2fe;
-  color: #0369a1;
+  background: var(--accent-light);
+  color: var(--accent);
   font-size: 12px;
   font-weight: 700;
   border-radius: 999px;
@@ -162,7 +131,7 @@ header {
   display: flex;
   align-items: center;
   box-shadow: var(--shadow-md);
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--border);
   max-width: 580px;
 }
 .search-box-wrapper input {
@@ -263,7 +232,7 @@ header {
 }
 .service-card {
   background: var(--surface);
-  border-radius: var(--radius);
+  border-radius: 12px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
   padding: 24px;
@@ -348,7 +317,7 @@ header {
   font-size: 14px;
   transition: 0.2s;
 }
-.btn-primary:hover { background: #0369a1; }
+.btn-primary:hover { background: #002b54; }
 .btn-wa {
   background: #10b981;
   color: #fff;
@@ -364,7 +333,7 @@ header {
 .btn-wa:hover { background: #059669; }
 
 footer {
-  background: #041726;
+  background: #000d1a;
   color: #94a3b8;
   padding: 24px 0;
   text-align: center;
@@ -372,11 +341,7 @@ footer {
   border-top: 1px solid rgba(255,255,255,0.06);
 }
 
-@media(max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .facilitation-box { grid-template-columns: 1fr; padding: 28px; }
-  .navlinks { display: none; }
-  /* Moving Notice Ticker */
+/* Moving Notice Ticker */
 .notice-ticker {
   display: flex;
   height: 42px;
@@ -426,6 +391,30 @@ footer {
 .ticker-text:hover {
   animation-play-state: paused;
 }
+
+:root {
+  --primary: #001f3f;
+  --primary-dark: #000d1a;
+  --accent: #003b73;
+  --accent-light: #e8f1f8;
+  --emerald: #059669;
+  --emerald-light: #ecfdf5;
+  --gold: #d4a017;
+  --gold-light: #fff8dc;
+  --surface: #ffffff;
+  --bg: #f5f7fa;
+  --border: #d7e0e8;
+  --text-main: #0b1726;
+  --text-muted: #64748b;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 20px -2px rgba(10, 61, 98, 0.08);
+  --shadow-lg: 0 12px 30px -4px rgba(10, 61, 98, 0.12);
+}
+
+@media(max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .facilitation-box { grid-template-columns: 1fr; padding: 28px; }
+  .navlinks { display: none; }
 }
 </style>
 </head>
@@ -442,6 +431,18 @@ footer {
       <span>Helpline: +91 6006675877</span>
       <span>|</span>
       <span>Working Hours: Mon-Sat 09:30 AM - 07:30 PM</span>
+    </div>
+  </div>
+</div>
+
+<!-- Moving Notice Bar -->
+<div class="notice-ticker">
+  <div class="ticker-label">📢 NOTICE</div>
+  <div class="ticker-wrapper">
+    <div class="ticker-text">
+      PAN Card • Aadhaar Print • Passport • Driving Licence • Learning Licence •
+      Vehicle Services • Certificates • Printing Services Available at
+      WIRED COMMUNICATIONS • 📞 6006675877
     </div>
   </div>
 </div>
