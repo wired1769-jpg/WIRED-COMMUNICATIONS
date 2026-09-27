@@ -600,9 +600,169 @@ footer {
   color: #fff;
 }
 
+
+/* Document Requirement Modal */
+.doc-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 15, 30, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+}
+.doc-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.doc-modal-box {
+  background: #ffffff;
+  border-radius: 16px;
+  max-width: 440px;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border);
+  transform: translateY(20px) scale(0.96);
+  transition: all 0.25s ease;
+}
+.doc-modal-overlay.active .doc-modal-box {
+  transform: translateY(0) scale(1);
+}
+.doc-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+.doc-modal-header h3 {
+  font-size: 18px;
+  color: var(--primary-dark);
+  font-weight: 800;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.doc-modal-close {
+  background: #f1f5f9;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: grid;
+  place-items: center;
+  color: #64748b;
+  transition: 0.2s;
+}
+.doc-modal-close:hover {
+  background: #ef4444;
+  color: #fff;
+}
+.doc-list-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 14px 0 20px;
+}
+.doc-list-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0369a1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.doc-item-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px dashed #cbd5e1;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+}
+.doc-item-row:last-child {
+  border-bottom: none;
+}
+.doc-item-check {
+  width: 20px;
+  height: 20px;
+  background: #dcfce7;
+  color: #16a34a;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+.pan-card-clickable {
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+.pan-card-clickable:hover {
+  border-color: var(--accent);
+}
+
 </style>
 </head>
 <body>
+
+<!-- PAN Card Document Requirement Modal -->
+<div class="doc-modal-overlay" id="panDocModal" onclick="closePanModal(event)">
+  <div class="doc-modal-box" onclick="event.stopPropagation()">
+    <div class="doc-modal-header">
+      <h3><span>🪪</span> PAN Card Services</h3>
+      <button class="doc-modal-close" onclick="togglePanModal()" aria-label="Close">✕</button>
+    </div>
+
+    <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0;">
+      Fresh PAN application, correction, or reprint karwane ke liye niche diye gaye zaroori documents sath layein ya WhatsApp par share karein:
+    </p>
+
+    <div class="doc-list-box">
+      <div class="doc-list-title">
+        <span>📋</span> Documents Required
+      </div>
+      <div class="doc-item-row">
+        <span class="doc-item-check">✓</span>
+        <span>Aadhar Card</span>
+      </div>
+      <div class="doc-item-row">
+        <span class="doc-item-check">✓</span>
+        <span>Mobile Number Linked With Aadhar</span>
+      </div>
+    </div>
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <a class="btn-wa" href="https://wa.me/916006675877?text=Hello%20WIRED%20COMMUNICATIONS,%20I%20want%20to%20apply%20for%20PAN%20Card.%20I%20have%20my%20Aadhar%20Card%20and%20Linked%20Mobile%20Number." target="_blank" rel="noopener" style="flex: 1; text-align: center; justify-content: center; font-size: 13px;">
+        <span>💬</span> Apply on WhatsApp
+      </a>
+      <button class="tab-btn" onclick="togglePanModal()" style="padding: 10px 18px; margin: 0; font-size: 13px;">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
 
 <!-- Sidebar Menu Overlay & Drawer -->
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
@@ -625,7 +785,11 @@ footer {
     </div>
     <ul class="sidebar-list">
       <li><span class="sidebar-num">1</span> Adhaar Card Printing</li>
-      <li><span class="sidebar-num">2</span> PAN Card FRESH/CORRECTION</li>
+      <li onclick="togglePanModal(); toggleSidebar();" style="cursor: pointer; background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">
+        <span class="sidebar-num" style="background: #0284c7; color: #fff;">2</span> 
+        <span style="flex: 1;">PAN Card FRESH/CORRECTION</span>
+        <span style="font-size: 11px; background: #0284c7; color: #fff; padding: 2px 6px; border-radius: 4px;">Docs</span>
+      </li>
       <li><span class="sidebar-num">3</span> Election Card FRESH/CORRECTION</li>
       <li><span class="sidebar-num">4</span> Abha Card</li>
       <li><span class="sidebar-num">5</span> Shop License Fresh/Renewal</li>
@@ -808,15 +972,18 @@ footer {
         </div>
 
         <!-- Identity -->
-        <div class="service-card" data-cat="identity">
+        <div class="service-card pan-card-clickable" data-cat="identity" onclick="togglePanModal()">
           <div class="service-card-head">
             <span class="dept-badge dept-soc">Identity</span>
-            <span>🪪</span>
+            <span style="font-size: 20px;">🪪</span>
           </div>
           <h3>PAN Card Services</h3>
           <p>Fresh PAN application, corrections, updates, and reprint services.</p>
+          <div style="background: #f0fdf4; border: 1px dashed #86efac; border-radius: 6px; padding: 6px 10px; margin-bottom: 12px; font-size: 11px; font-weight: 700; color: #15803d; display: flex; align-items: center; gap: 6px;">
+            <span>ℹ️</span> Click to view required documents
+          </div>
           <div class="service-action">
-            <span class="service-link">Available at Centre →</span>
+            <span class="service-link" style="color: var(--accent); font-weight: 700;">View Documents &amp; Apply →</span>
           </div>
         </div>
 
@@ -1098,6 +1265,18 @@ function toggleSidebar() {
   const overlay = document.getElementById('sidebarOverlay');
   sidebar.classList.toggle('active');
   overlay.classList.toggle('active');
+}
+
+
+// PAN Card Document Modal Functions
+function togglePanModal() {
+  const modal = document.getElementById('panDocModal');
+  modal.classList.toggle('active');
+}
+function closePanModal(e) {
+  if (e.target.id === 'panDocModal') {
+    togglePanModal();
+  }
 }
 
 </script>
